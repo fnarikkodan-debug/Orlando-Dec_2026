@@ -153,14 +153,6 @@
     .budget td:last-child { white-space: nowrap; font-weight: 600; }
     .budget tr.total td { border-bottom: 0; background: color-mix(in srgb, var(--accent) 10%, transparent); }
 
-    .area { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-    .area:last-child { border-bottom: 0; }
-    .area .num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; background: color-mix(in srgb, var(--accent-2) 16%, transparent); color: var(--accent-2); }
-    .area h4 { margin: 0 0 2px; font-size: 17px; }
-    .area p { margin: 0; color: var(--muted); font-size: 15px; }
-    .area .drive { font-size: 13px; font-weight: 600; color: var(--accent-2); }
-    .area .warn { color: var(--accent); }
-
     .tips { margin: 0; padding-left: 20px; }
     .tips li { padding: 4px 0; }
     .sources { font-size: 13px; color: var(--muted); margin-top: 24px; }
@@ -206,70 +198,59 @@
 
     <section id="stay">
       <h2>Where we're staying</h2>
-      <p class="lead">Booking the stay is today's task. We're open to any type of lodging, but the budget and must-haves narrow it down to one option.</p>
-
       <div class="grid">
         <div class="card stay-pick">
-          <span class="tag">Plan</span>
-          <h3>One 4–5 bedroom vacation home with a private pool</h3>
-          <p>A Disney resort with two rooms would be well over budget for this week. Condo resorts only have shared pools. One shared house is the only option that meets every requirement.</p>
+          <span class="tag">Family 1 · Booked ✓</span>
+          <h3>Delta Hotels by Marriott Orlando Celebration</h3>
+          <p>2900 Parkway Blvd, Kissimmee, FL 34747. A Disney "Good Neighbor" hotel about a 5-minute drive from Walt Disney World.</p>
         </div>
         <div class="card">
-          <span class="tag">Must-haves</span>
-          <h3>Pool, kitchen, parking</h3>
-          <p>Heated private pool, full kitchen, free parking for 2 cars, and 4 or 5 bedrooms within about 20 minutes of the parks.</p>
+          <span class="tag">Dates</span>
+          <h3>Dec 27 – Dec 31</h3>
+          <p>4 nights. Check-in and check-out times: <i>to add</i>.</p>
         </div>
         <div class="card">
-          <span class="tag">Budget</span>
-          <h3>Under $2,000 total</h3>
-          <p>For all 4 nights, both families combined, with all fees and taxes included.</p>
+          <span class="tag">Family 2</span>
+          <h3>Still to book</h3>
+          <p>Booking at the same Delta keeps both families together and makes it easy to meet up for the parks.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Booking</span>
+          <h3>Details to add</h3>
+          <p>Room type, total price, and confirmation number for each family.</p>
         </div>
       </div>
 
-      <h3 class="sub">What it costs (estimate)</h3>
+      <h3 class="sub">Extra hotel fees per family (estimate)</h3>
       <table class="budget">
-        <thead><tr><th>Item</th><th>Estimate</th></tr></thead>
+        <thead><tr><th>Fee</th><th>Estimate for 4 nights</th></tr></thead>
         <tbody>
-          <tr><td>Pool heat (needed in December)</td><td>~$140</td></tr>
-          <tr><td>Cleaning fee</td><td>$200–300</td></tr>
-          <tr><td>Taxes (Osceola County)</td><td>~12–13.5%</td></tr>
-          <tr><td>Airbnb/Vrbo service fee (none if you book directly)</td><td>~10–15%</td></tr>
-          <tr class="total"><td>Base rate that keeps the total under $2,000</td><td>~$300–350/night</td></tr>
+          <tr><td>Self-parking, ~$24/day per car + tax (1 car)</td><td>~$95</td></tr>
+          <tr><td>Resort/destination fee, ~$25/night per room + tax (1 room)</td><td>~$100</td></tr>
         </tbody>
       </table>
-      <p class="lead" style="margin-top:12px">A 5-bedroom home at that price will be hard to find for Christmas week, but a 4-bedroom one is realistic.</p>
+      <p class="lead" style="margin-top:12px">Fees vary by source. Check the confirmation, or ask at check-in, whether they're already included.</p>
 
-      <h3 class="sub">Where to look, closest first</h3>
-      <div class="card">
-        <div class="area"><div class="num">1</div><div><h4>Windsor Hills &amp; Storey Lake</h4><p>Most likely to meet the 20-minute limit, but these cost more.</p><span class="drive">10–15 min to Animal Kingdom &amp; Hollywood Studios · 15–20 min to Magic Kingdom</span></div></div>
-        <div class="area"><div class="num">2</div><div><h4>Encore at Reunion &amp; Solara</h4><p>A good middle option.</p><span class="drive">~15 min to Animal Kingdom · 20+ min to Magic Kingdom</span></div></div>
-        <div class="area"><div class="num">3</div><div><h4>ChampionsGate &amp; Solterra (Davenport)</h4><p>The cheapest areas, but they go over the 20-minute limit for Magic Kingdom.</p><span class="drive">~20 min to Animal Kingdom &amp; EPCOT · <span class="warn">25–30 min to Magic Kingdom</span></span></div></div>
-      </div>
-
-      <h3 class="sub">Tips for booking</h3>
+      <h3 class="sub">Before we go</h3>
       <div class="card">
         <ul class="tips">
-          <li><b>Book soon.</b> The cheaper homes for Dec 27–31 go first.</li>
-          <li>Check the <b>total price</b> on each listing (pool heat + cleaning + taxes), not the nightly rate.</li>
-          <li>Make sure <b>pool heat is guaranteed</b> and costs a set amount per day, not just "optional if available."</li>
-          <li>The listing should <b>show driveway parking for 2 cars</b>. Some HOAs ban street parking.</li>
-          <li>Many homes set <b>5–7 night minimums</b> over the holidays, so filter by our exact dates.</li>
-          <li>Once you find a home on Vrbo, <b>look up its management company and book directly</b> to save the service fee.</li>
-          <li>Booked? Add the address and confirmation number here.</li>
+          <li>Ask about the <b>free shuttle to the Disney parks</b>. Taking it some days saves the park parking fee.</li>
+          <li><b>Book family 2's stay soon.</b> Dec 27–31 is the busiest week of the year.</li>
+          <li>If family 2 books the Delta too, ask for <b>adjoining or nearby rooms</b>.</li>
+          <li>Get a <b>parking pass for each car</b> at check-in.</li>
         </ul>
       </div>
 
       <p class="sources">Sources:
-        <a href="https://www.vrbo.com/en-gb/p9488592" target="_blank" rel="noopener">Vrbo Windsor Hills listing</a> ·
-        <a href="https://homes-and-villas.marriott.com/en/properties/40558124-four-corners-windsor-hills-resort-5-bedroom-private-pool-home" target="_blank" rel="noopener">Marriott Homes &amp; Villas</a> ·
-        <a href="https://osceolataxcollector.org/tourist-development-taxtes/" target="_blank" rel="noopener">Osceola County tourist tax</a> ·
-        <a href="https://www.19pine.ai/short-term-rental-laws/florida/osceola-county" target="_blank" rel="noopener">Osceola rental guide</a>
+        <a href="https://www.tripadvisor.com/Hotel_Review-d84834" target="_blank" rel="noopener">Tripadvisor</a> ·
+        <a href="https://tripster.com/detail/delta-hotels-orlando-celebration-kissimmee" target="_blank" rel="noopener">Tripster</a> ·
+        <a href="https://www.getawaytoday.com/hotels/waltdisneyworldresortgoodneighborhotels-fl/deltahotelsbymarriottorlandocelebration" target="_blank" rel="noopener">Getaway Today</a>
       </p>
     </section>
 
     <section id="itinerary">
       <h2>Itinerary</h2>
-      <div class="day"><div class="date">Sun, Dec 27</div><div><h3>Drive down &amp; check in</h3><p>Arrive, get groceries for the kitchen, and swim in the pool.</p></div></div>
+      <div class="day"><div class="date">Sun, Dec 27</div><div><h3>Drive down &amp; check in</h3><p>Check in, get parking passes, and relax at the hotel pool.</p></div></div>
       <div class="day"><div class="date">Mon, Dec 28</div><div><h3>Park day 1</h3><p>Arrive at opening and ride the top attractions first. Pick the park closer to the time.</p></div></div>
       <div class="day"><div class="date">Tue, Dec 29</div><div><h3>Park day 2</h3><p>A second park. Plan around Lightning Lane bookings and show times.</p></div></div>
       <div class="day"><div class="date">Wed, Dec 30</div><div><h3>Park day 3</h3><p>A third park, or a slower pool morning followed by an evening at Disney Springs.</p></div></div>
@@ -279,10 +260,10 @@
     <section id="parks">
       <h2>Disney parks</h2>
       <div class="grid">
-        <div class="card"><span class="tag">Park</span><h3>Magic Kingdom</h3><p>The castle, the classic rides, and holiday decorations. It's the farthest park from the rental-home areas.</p></div>
+        <div class="card"><span class="tag">Park</span><h3>Magic Kingdom</h3><p>The castle, the classic rides, and holiday decorations.</p></div>
         <div class="card"><span class="tag">Park</span><h3>EPCOT</h3><p>World Showcase and the holiday festival.</p></div>
         <div class="card"><span class="tag">Park</span><h3>Hollywood Studios</h3><p>Star Wars, Toy Story Land, and the big thrill rides.</p></div>
-        <div class="card"><span class="tag">Park</span><h3>Animal Kingdom</h3><p>Safari, Pandora, and the closest park to Kissimmee.</p></div>
+        <div class="card"><span class="tag">Park</span><h3>Animal Kingdom</h3><p>Safari, Pandora, and the animal trails.</p></div>
         <div class="card"><span class="tag">Evening</span><h3>Disney Springs</h3><p>Shopping, dining, and holiday decorations. Free to visit.</p></div>
       </div>
     </section>
@@ -290,7 +271,7 @@
     <section id="packing">
       <h2>Packing checklist</h2>
       <ul class="checklist" id="checklist">
-        <li><label><input type="checkbox"><span>IDs, rental confirmation, house address</span></label></li>
+        <li><label><input type="checkbox"><span>IDs and hotel confirmation</span></label></li>
         <li><label><input type="checkbox"><span>Park tickets / app set up</span></label></li>
         <li><label><input type="checkbox"><span>Comfortable walking shoes</span></label></li>
         <li><label><input type="checkbox"><span>Light jacket or hoodie</span></label></li>
