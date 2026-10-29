@@ -21,7 +21,7 @@
       --sky-bottom: #ffe3c4;
     }
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --bg: #12151d;
         --surface: #1a1f2a;
         --ink: #eef1f6;
@@ -32,6 +32,17 @@
         --sky-top: #3a2a4d;
         --sky-bottom: #1a1f2a;
       }
+    }
+    :root[data-theme="dark"] {
+      --bg: #12151d;
+      --surface: #1a1f2a;
+      --ink: #eef1f6;
+      --muted: #a2aabb;
+      --line: #2a3140;
+      --accent: #ff7f57;
+      --accent-2: #4fc1c1;
+      --sky-top: #3a2a4d;
+      --sky-bottom: #1a1f2a;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -131,6 +142,30 @@
     .checklist input { accent-color: var(--accent); width: 18px; height: 18px; margin-top: 3px; flex: none; }
     .checklist input:checked + span { text-decoration: line-through; color: var(--muted); }
 
+    .lead { color: var(--muted); max-width: 680px; margin: -8px 0 24px; }
+    .stay-pick { border-left: 4px solid var(--accent); }
+    .stay-pick h3 { font-size: 22px; }
+    h3.sub { font-size: 20px; margin: 32px 0 12px; }
+
+    .budget { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; font-size: 15px; }
+    .budget th, .budget td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .budget th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+    .budget td:last-child { white-space: nowrap; font-weight: 600; }
+    .budget tr.total td { border-bottom: 0; background: color-mix(in srgb, var(--accent) 10%, transparent); }
+
+    .area { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .area:last-child { border-bottom: 0; }
+    .area .num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; background: color-mix(in srgb, var(--accent-2) 16%, transparent); color: var(--accent-2); }
+    .area h4 { margin: 0 0 2px; font-size: 17px; }
+    .area p { margin: 0; color: var(--muted); font-size: 15px; }
+    .area .drive { font-size: 13px; font-weight: 600; color: var(--accent-2); }
+    .area .warn { color: var(--accent); }
+
+    .tips { margin: 0; padding-left: 20px; }
+    .tips li { padding: 4px 0; }
+    .sources { font-size: 13px; color: var(--muted); margin-top: 24px; }
+    .sources a { color: var(--muted); }
+
     footer { padding: 48px 0; color: var(--muted); font-size: 14px; text-align: center; }
   </style>
 </head>
@@ -139,7 +174,7 @@
     <div class="wrap">
       <div class="eyebrow">December 2026 · Florida</div>
       <h1>Orlando Trip 2026 Dec</h1>
-      <p>Theme parks, sunshine, and holiday lights. Everything we need for the trip in one place.</p>
+      <p>Two families, five adults and three kids, driving down for four nights of Disney parks between Christmas and New Year's.</p>
       <div class="countdown" id="countdown" aria-label="Countdown to trip">
         <div><b id="cd-days">–</b><span>Days</span></div>
         <div><b id="cd-hours">–</b><span>Hours</span></div>
@@ -151,8 +186,9 @@
   <nav>
     <div class="wrap">
       <a href="#overview">Overview</a>
+      <a href="#stay">Stay</a>
       <a href="#itinerary">Itinerary</a>
-      <a href="#parks">Parks &amp; Fun</a>
+      <a href="#parks">Parks</a>
       <a href="#packing">Packing</a>
     </div>
   </nav>
@@ -161,31 +197,92 @@
     <section id="overview">
       <h2>Trip overview</h2>
       <div class="grid">
-        <div class="card"><span class="tag">Dates</span><h3>Dec 19 – Dec 26</h3><p>Holiday week in Orlando. Update with final dates.</p></div>
-        <div class="card"><span class="tag">Flights</span><h3>MCO</h3><p>Orlando International Airport. Add flight numbers here.</p></div>
-        <div class="card"><span class="tag">Stay</span><h3>Hotel TBD</h3><p>Add hotel name, address, and confirmation number.</p></div>
-        <div class="card"><span class="tag">Weather</span><h3>~60–75°F</h3><p>Mild days, cool evenings. Bring a light jacket.</p></div>
+        <div class="card"><span class="tag">Dates</span><h3>Dec 27 – Dec 31</h3><p>Check in Sunday the 27th, check out Thursday the 31st. That's 4 nights.</p></div>
+        <div class="card"><span class="tag">Group</span><h3>8 people</h3><p>Two families: 5 adults and 3 kids.</p></div>
+        <div class="card"><span class="tag">Travel</span><h3>Driving</h3><p>No flights. Two cars, so the stay needs parking for both.</p></div>
+        <div class="card"><span class="tag">Weather</span><h3>~60–75°F</h3><p>Mild days and cool evenings. Bring a light jacket.</p></div>
       </div>
+    </section>
+
+    <section id="stay">
+      <h2>Where we're staying</h2>
+      <p class="lead">Booking the stay is today's task. We're open to any type of lodging, but the budget and must-haves narrow it down to one option.</p>
+
+      <div class="grid">
+        <div class="card stay-pick">
+          <span class="tag">Plan</span>
+          <h3>One 4–5 bedroom vacation home with a private pool</h3>
+          <p>A Disney resort with two rooms would be well over budget for this week. Condo resorts only have shared pools. One shared house is the only option that meets every requirement.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Must-haves</span>
+          <h3>Pool, kitchen, parking</h3>
+          <p>Heated private pool, full kitchen, free parking for 2 cars, and 4 or 5 bedrooms within about 20 minutes of the parks.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Budget</span>
+          <h3>Under $2,000 total</h3>
+          <p>For all 4 nights, both families combined, with all fees and taxes included.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">What it costs (estimate)</h3>
+      <table class="budget">
+        <thead><tr><th>Item</th><th>Estimate</th></tr></thead>
+        <tbody>
+          <tr><td>Pool heat (needed in December)</td><td>~$140</td></tr>
+          <tr><td>Cleaning fee</td><td>$200–300</td></tr>
+          <tr><td>Taxes (Osceola County)</td><td>~12–13.5%</td></tr>
+          <tr><td>Airbnb/Vrbo service fee (none if you book directly)</td><td>~10–15%</td></tr>
+          <tr class="total"><td>Base rate that keeps the total under $2,000</td><td>~$300–350/night</td></tr>
+        </tbody>
+      </table>
+      <p class="lead" style="margin-top:12px">A 5-bedroom home at that price will be hard to find for Christmas week, but a 4-bedroom one is realistic.</p>
+
+      <h3 class="sub">Where to look, closest first</h3>
+      <div class="card">
+        <div class="area"><div class="num">1</div><div><h4>Windsor Hills &amp; Storey Lake</h4><p>Most likely to meet the 20-minute limit, but these cost more.</p><span class="drive">10–15 min to Animal Kingdom &amp; Hollywood Studios · 15–20 min to Magic Kingdom</span></div></div>
+        <div class="area"><div class="num">2</div><div><h4>Encore at Reunion &amp; Solara</h4><p>A good middle option.</p><span class="drive">~15 min to Animal Kingdom · 20+ min to Magic Kingdom</span></div></div>
+        <div class="area"><div class="num">3</div><div><h4>ChampionsGate &amp; Solterra (Davenport)</h4><p>The cheapest areas, but they go over the 20-minute limit for Magic Kingdom.</p><span class="drive">~20 min to Animal Kingdom &amp; EPCOT · <span class="warn">25–30 min to Magic Kingdom</span></span></div></div>
+      </div>
+
+      <h3 class="sub">Tips for booking</h3>
+      <div class="card">
+        <ul class="tips">
+          <li><b>Book soon.</b> The cheaper homes for Dec 27–31 go first.</li>
+          <li>Check the <b>total price</b> on each listing (pool heat + cleaning + taxes), not the nightly rate.</li>
+          <li>Make sure <b>pool heat is guaranteed</b> and costs a set amount per day, not just "optional if available."</li>
+          <li>The listing should <b>show driveway parking for 2 cars</b>. Some HOAs ban street parking.</li>
+          <li>Many homes set <b>5–7 night minimums</b> over the holidays, so filter by our exact dates.</li>
+          <li>Once you find a home on Vrbo, <b>look up its management company and book directly</b> to save the service fee.</li>
+          <li>Booked? Add the address and confirmation number here.</li>
+        </ul>
+      </div>
+
+      <p class="sources">Sources:
+        <a href="https://www.vrbo.com/en-gb/p9488592" target="_blank" rel="noopener">Vrbo Windsor Hills listing</a> ·
+        <a href="https://homes-and-villas.marriott.com/en/properties/40558124-four-corners-windsor-hills-resort-5-bedroom-private-pool-home" target="_blank" rel="noopener">Marriott Homes &amp; Villas</a> ·
+        <a href="https://osceolataxcollector.org/tourist-development-taxtes/" target="_blank" rel="noopener">Osceola County tourist tax</a> ·
+        <a href="https://www.19pine.ai/short-term-rental-laws/florida/osceola-county" target="_blank" rel="noopener">Osceola rental guide</a>
+      </p>
     </section>
 
     <section id="itinerary">
       <h2>Itinerary</h2>
-      <div class="day"><div class="date">Sat, Dec 19</div><div><h3>Arrive &amp; settle in</h3><p>Land at MCO, pick up the rental car, check in, and grab dinner.</p></div></div>
-      <div class="day"><div class="date">Sun, Dec 20</div><div><h3>Theme park day 1</h3><p>Rope drop, top rides first, then holiday parade and fireworks.</p></div></div>
-      <div class="day"><div class="date">Mon, Dec 21</div><div><h3>Theme park day 2</h3><p>A second park. Plan around ride reservations and show times.</p></div></div>
-      <div class="day"><div class="date">Tue, Dec 22</div><div><h3>Rest &amp; pool day</h3><p>Sleep in, pool time, and an evening at Disney Springs or ICON Park.</p></div></div>
-      <div class="day"><div class="date">Wed, Dec 23</div><div><h3>Space Coast</h3><p>Day trip to Kennedy Space Center, about an hour east.</p></div></div>
-      <div class="day"><div class="date">Thu, Dec 24</div><div><h3>Christmas Eve</h3><p>Holiday lights and a special dinner. Book reservations early.</p></div></div>
-      <div class="day"><div class="date">Fri, Dec 25</div><div><h3>Christmas Day</h3><p>Relaxed morning, then a park or water activity if the weather allows.</p></div></div>
-      <div class="day"><div class="date">Sat, Dec 26</div><div><h3>Fly home</h3><p>Check out, return the car, and head to MCO.</p></div></div>
+      <div class="day"><div class="date">Sun, Dec 27</div><div><h3>Drive down &amp; check in</h3><p>Arrive, get groceries for the kitchen, and swim in the pool.</p></div></div>
+      <div class="day"><div class="date">Mon, Dec 28</div><div><h3>Park day 1</h3><p>Arrive at opening and ride the top attractions first. Pick the park closer to the time.</p></div></div>
+      <div class="day"><div class="date">Tue, Dec 29</div><div><h3>Park day 2</h3><p>A second park. Plan around Lightning Lane bookings and show times.</p></div></div>
+      <div class="day"><div class="date">Wed, Dec 30</div><div><h3>Park day 3</h3><p>A third park, or a slower pool morning followed by an evening at Disney Springs.</p></div></div>
+      <div class="day"><div class="date">Thu, Dec 31</div><div><h3>Check out &amp; drive home</h3><p>Pack the cars and check out. Parks get extremely crowded on New Year's Eve.</p></div></div>
     </section>
 
     <section id="parks">
-      <h2>Parks &amp; fun</h2>
+      <h2>Disney parks</h2>
       <div class="grid">
-        <div class="card"><span class="tag">Theme park</span><h3>Walt Disney World</h3><p>Magic Kingdom, EPCOT, Hollywood Studios, Animal Kingdom.</p></div>
-        <div class="card"><span class="tag">Theme park</span><h3>Universal Orlando</h3><p>Universal Studios, Islands of Adventure, Epic Universe.</p></div>
-        <div class="card"><span class="tag">Day trip</span><h3>Kennedy Space Center</h3><p>Rockets, the shuttle Atlantis, and maybe a launch.</p></div>
+        <div class="card"><span class="tag">Park</span><h3>Magic Kingdom</h3><p>The castle, the classic rides, and holiday decorations. It's the farthest park from the rental-home areas.</p></div>
+        <div class="card"><span class="tag">Park</span><h3>EPCOT</h3><p>World Showcase and the holiday festival.</p></div>
+        <div class="card"><span class="tag">Park</span><h3>Hollywood Studios</h3><p>Star Wars, Toy Story Land, and the big thrill rides.</p></div>
+        <div class="card"><span class="tag">Park</span><h3>Animal Kingdom</h3><p>Safari, Pandora, and the closest park to Kissimmee.</p></div>
         <div class="card"><span class="tag">Evening</span><h3>Disney Springs</h3><p>Shopping, dining, and holiday decorations. Free to visit.</p></div>
       </div>
     </section>
@@ -193,7 +290,7 @@
     <section id="packing">
       <h2>Packing checklist</h2>
       <ul class="checklist" id="checklist">
-        <li><label><input type="checkbox"><span>IDs, boarding passes, confirmations</span></label></li>
+        <li><label><input type="checkbox"><span>IDs, rental confirmation, house address</span></label></li>
         <li><label><input type="checkbox"><span>Park tickets / app set up</span></label></li>
         <li><label><input type="checkbox"><span>Comfortable walking shoes</span></label></li>
         <li><label><input type="checkbox"><span>Light jacket or hoodie</span></label></li>
@@ -211,7 +308,7 @@
 
   <script>
     // Countdown to the first trip day
-    const tripStart = new Date('2026-12-19T00:00:00');
+    const tripStart = new Date('2026-12-27T00:00:00');
     function tick() {
       const ms = Math.max(0, tripStart - new Date());
       document.getElementById('cd-days').textContent = Math.floor(ms / 86400000);

@@ -1,0 +1,6 @@
+- Dec 27th checkin and 31st checkout
+- two families 5 adults and 3 kids
+- Disney parks is the only destination
+- want to stay within 20 minutes 
+- ask me any questions you need to plan this trip
+- today's plan is to book stay we are driving no flights
